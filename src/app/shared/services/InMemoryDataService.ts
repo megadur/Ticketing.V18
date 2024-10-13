@@ -15,8 +15,21 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     users: User[] = [
-        { id: 111, name: 'Victor'}, 
-        { id: 112, name: 'Wes' }
+        { 
+            id: 111, 
+            name: 'Victor',
+            starRating: 3.2,
+            imageUrl: 'assets/images/man3.png',
+            tags: ['rake', 'leaf', 'yard', 'home']   ,
+            address: '1234 Anywhere St.', 
+        }, 
+        { id: 112, name: 'Wes',
+            starRating: 2.2,
+            imageUrl: 'assets/images/man3.png',
+            tags: [ 'yard', 'home']   ,
+            address: '1234 Anywhere St.', 
+
+         }
     ];
 
     tickets: Ticket[] = [

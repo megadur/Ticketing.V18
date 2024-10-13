@@ -14,11 +14,11 @@ export const routes: Routes = [
         loadChildren: () =>
             import('./features/ticket/components/ticket-detail/ticket-detail.routes').then((m) => m.routes),
     },
-    // {
-    //     path: 'products/:id/edit',
-    //     loadChildren: () =>
-    //         import('./features/products/components/product-edit/product-edit.routes').then((m) => m.routes),
-    // },
+    {
+        path: 'tickets/:id/edit',
+        loadChildren: () =>
+            import('./features/ticket/components/ticket-edit/ticket-edit.routes').then((m) => m.routes),
+    },
     {
         path: 'users',
         loadComponent: () =>
@@ -29,6 +29,11 @@ export const routes: Routes = [
         path: 'users/:id',
         loadChildren: () =>
             import('./features/user/components/user-detail/user-detail.routes').then((m) => m.routes),
+    },
+    {
+        path: 'users/:id/edit',
+        loadChildren: () =>
+            import('./features/user/components/user-edit/user-edit.routes').then((m) => m.routes),
     },
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
