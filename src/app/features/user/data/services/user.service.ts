@@ -3,7 +3,7 @@ import { Observable, of, delay, tap, throwError } from 'rxjs';
 import { User } from '../types/user';
 
 function randomDelay() {
-  return Math.random() * 4000;
+  return Math.random() * 400;
 }
 
 @Injectable({

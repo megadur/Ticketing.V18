@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { delay, map, mergeMap, tap } from 'rxjs/operators';
 import { Ticket } from '../types/ticket';
 import { UserService } from '../../../user/data/services/user.service';
+import { User } from '../../../user/data/types/user';
+import { TicketWithUser } from '../types/ticket-with-user';
 
 
 function randomDelay() {
-  return Math.random() * 4000;
+  return Math.random() * 400;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -21,8 +23,20 @@ export class TicketService {
     {
       id: 1,
       description: 'Move the desk to the new location',
-      assigneeId: 111,
+      assigneeId: 112,
       completed: false
+    },
+    {
+      id: 2,
+      description: 'Ticket 2',
+      assigneeId: 113,
+      completed: false
+    },
+    {
+      id: 3,
+      description: 'Ticket 3',
+      assigneeId: undefined,
+      completed: true
     }
   ];
 
@@ -68,22 +82,22 @@ export class TicketService {
         })
       );
     }
-
-    return throwError(new Error('ticket or user not found'));
+    return throwError(() => new Error('ticket or user not found'))
   }
 
   complete(ticketId: number, completed: boolean): Observable<Ticket> {
     const foundTicket = this.findTicketById(+ticketId);
     if (foundTicket) {
       return of(foundTicket).pipe(
-        delay(randomDelay()),
+        //delay(randomDelay()),
         tap((ticket: Ticket) => {
-          throw new Error('Backend failure');
+          //throw new Error('Backend failure');
           ticket.completed = true;
         })
       );
     }
 
-    return throwError(new Error('ticket not found'));
+    return throwError(() => new Error('ticket not found'))
   }
+ 
 }

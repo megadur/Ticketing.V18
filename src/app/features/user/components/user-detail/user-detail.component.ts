@@ -22,9 +22,11 @@ export class UserDetailComponent implements OnInit {
   errorMessage = '';
   user: User | undefined;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private userService: UserService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private userService: UserService
+  ) {
   }
 
   ngOnInit(): void {

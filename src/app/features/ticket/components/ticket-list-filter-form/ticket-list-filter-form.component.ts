@@ -3,11 +3,14 @@ import { Subscription } from 'rxjs';
 import { Ticket } from '../../../ticket/data/types/ticket';
 import { TicketFilter } from '../../data/types/ticket-filter';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { User } from '../../../user/data/types/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-list-filter-form',
   standalone: true,
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     FormsModule,
   ],
@@ -18,7 +21,7 @@ export class TicketListFilterFormComponent implements OnInit, OnDestroy {
   @Input()
   currentFilter: TicketFilter|null = null;
   @Input()
-  tickets: Ticket[] |null= [];
+  users: User[] |null= [];
   @Output() filter = new EventEmitter<TicketFilter>();
 
   form!: FormGroup;
