@@ -1,0 +1,41 @@
+<p>assign-gutachter-modal works!</p>
+<div class="modal-header">
+    <h4 class="modal-title">Assign Gutachter for Gutachten: {{ gutachtenId }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="cancel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div class="modal-body" *ngIf="gutachters$ | async as gutachters; else loading">
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="assigneeId">Assignee</label>
+        <select
+          class="form-control"
+          name="assigneeId"
+          [(ngModel)]="selectedAssignee"
+        >
+          <option value=""></option>
+          <option *ngFor="let gutachter of gutachters" [value]="gutachter.id">{{
+            gutachter.name
+          }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <div class="modal-body">
+      Loading...
+    </div>
+  </ng-template>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="assign()">
+      Assign Gutachter
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">
+      Cancel
+    </button>
+  </div>
+  

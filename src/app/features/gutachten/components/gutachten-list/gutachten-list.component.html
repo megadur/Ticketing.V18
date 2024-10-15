@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="createGutachten()">Create New</button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-6">
+    <app-gutachten-list-filter-form [currentFilter]="currentFilter$ | async" [gutachters]="gutachters$ | async"
+      (filter)="onFilterGutachtens($event)"></app-gutachten-list-filter-form>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <app-gutachten-list-grid [gutachtensWithGutachters]="gutachtensWithGutachters$ | async" [isLoading]="isLoading$ | async"
+      (view)="onViewGutachten($event)" (assign)="onAssignGutachten($event)"
+      (complete)="onCompleteGutachten($event)"></app-gutachten-list-grid>
+  </div>
+</div>
+<small class="text-muted">GutachtenListComponent
+  <pre>
+  {{gutachtens$ | async | json}}
+</pre>
+  <pre>
+  {{gutachters$ | async | json}}
+</pre>
+<pre>
+  {{gutachtensWithGutachters$ | async | json}}
+</pre>
+
+</small>

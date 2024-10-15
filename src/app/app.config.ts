@@ -6,8 +6,8 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { loggerConfig } from './logger.config';
 import { provideLogger } from './shared/util-logger';
-import { TicketApiService } from './features/ticket/data/services/ticket-api.service';
-import { UserApiService } from './features/user/data/services/user-api.service';
+import { GutachtenApiService } from './features/gutachten/data/services/gutachten-api.service';
+import { GutachterApiService } from './features/gutachter/data/services/gutachter-api.service';
 import { InMemoryDataService } from './shared/services/InMemoryDataService';
 
 export const appConfig: ApplicationConfig = {
@@ -18,8 +18,8 @@ export const appConfig: ApplicationConfig = {
       //  withDebugTracing(),
     ),
     provideHttpClient(),
-    importProvidersFrom(InMemoryWebApiModule.forRoot(TicketApiService, { delay: 1000 })),
-    importProvidersFrom(InMemoryWebApiModule.forRoot(UserApiService, { delay: 1000 })),
+    importProvidersFrom(InMemoryWebApiModule.forRoot(GutachtenApiService, { delay: 1000 })),
+    importProvidersFrom(InMemoryWebApiModule.forRoot(GutachterApiService, { delay: 1000 })),
     importProvidersFrom(InMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })),
 
     provideLogger(loggerConfig),

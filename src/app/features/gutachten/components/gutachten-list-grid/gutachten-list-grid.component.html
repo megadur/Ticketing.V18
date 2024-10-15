@@ -1,0 +1,39 @@
+<div *ngIf="isLoading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  
+  <table *ngIf="!isLoading" class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>Assigned</th>
+        <th>Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gutachten of gutachtensWithGutachters">
+        <td>
+          <button class="btn btn-secondary" (click)="view.emit(gutachten.id)">
+            View
+          </button>
+          <button class="btn btn-secondary" (click)="assign.emit(gutachten.id)">
+            Assign
+          </button>
+          <button
+            class="btn btn-secondary"
+            *ngIf="!gutachten.completed"
+            (click)="complete.emit({gutachtenId: gutachten.id, originalStatus: gutachten.completed})"
+          >
+            Mark Complete
+          </button>
+        </td>
+        <td>{{ gutachten.id }}</td>
+        <td>{{ gutachten.assigneeName }}</td>
+        <td>{{ gutachten.completed ? 'Yes' : 'No' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

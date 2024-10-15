@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Ticketing.V18';
+  title = 'Gutachtening.V18';
 
   error$: Observable<string>= new Observable<string>();
   isLoading$: Observable<boolean>= new Observable<boolean>();
@@ -26,7 +26,7 @@ export class AppComponent {
   ngOnInit() {
     //this.error$ = this.store.select(RootStoreSelectors.selectError);
     //this.isLoading$ = this.store.select(RootStoreSelectors.selectIsLoading);
-    //this.store.dispatch(new UserStoreActions.LoadUsersAction());
-    //this.store.dispatch(new TicketStoreActions.LoadTicketsAction());
+    //this.store.dispatch(new GutachterStoreActions.LoadGutachtersAction());
+    //this.store.dispatch(new GutachtenStoreActions.LoadGutachtensAction());
   }
 }

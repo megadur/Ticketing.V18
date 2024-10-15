@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Observable } from 'rxjs';
-import { User } from '../../features/user/data/types/user';
-import { Ticket } from '../../features/ticket/data/types/ticket';
+import { Gutachter } from '../../features/gutachter/data/types/gutachter';
+import { Gutachten } from '../../features/gutachten/data/types/gutachten';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
         { id: 2, name: 'Item 2' },
     ];
 
-    users: User[] = [
+    gutachters: Gutachter[] = [
         { 
             id: 111, 
             name: 'Victor',
@@ -32,7 +32,7 @@ export class InMemoryDataService implements InMemoryDbService {
          }
     ];
 
-    tickets: Ticket[] = [
+    gutachtens: Gutachten[] = [
         {
             id: 0,
             description: 'Install a monitor arm',
@@ -51,8 +51,8 @@ export class InMemoryDataService implements InMemoryDbService {
     createDb() {
         return {
             items: this.items,
-            users: this.users,
-            tickets: this.tickets
+            gutachters: this.gutachters,
+            gutachtens: this.gutachtens
         };
     }
 

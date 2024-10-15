@@ -1,0 +1,34 @@
+<form [formGroup]="form" novalidate (ngSubmit)="updateFilter()">
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="assigneeId">Assignee</label>
+        <select class="form-control" formControlName="assigneeId" id="assigneeId">
+          <option value=""></option>
+          <option *ngFor="let gutachter of gutachters" [value]="gutachter.id">{{
+            gutachter.name
+          }}</option>
+        </select>
+      </div>
+      <div class="form-group col">
+        <label for="completed">Status</label>
+        <select class="form-control" formControlName="completed" id="completed">
+          <option value=""></option>
+          <option value="true">Completed</option>
+          <option value="false">Not Completed</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col">
+        <button
+          class="btn btn-primary"
+          (click)="updateFilter()"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Filter
+        </button>
+      </div>
+    </div>
+  </form>
+  <!-- {{gutachters | json}} -->

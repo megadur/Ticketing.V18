@@ -1,0 +1,22 @@
+<p>gutachten-detail works!</p>
+<div
+  class="row"
+  *ngIf="gutachtenWithGutachter$ | async as gutachtenWithGutachter; else loading"
+>
+  <div class="col">
+    <h2>ID: {{ gutachtenWithGutachter.id }}</h2>
+    <br />
+    Assignee: {{ gutachtenWithGutachter.assigneeName }}<br />
+    Completed: {{ gutachtenWithGutachter.completed }}<br />
+    Description: {{ gutachtenWithGutachter.description }}
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col"><a [routerLink]="['/gutachtens']">Back to List</a></div>
+</div>
+<ng-template #loading>
+  <div>
+    Loading Gutachten...
+  </div>
+</ng-template>
