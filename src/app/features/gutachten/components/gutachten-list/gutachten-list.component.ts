@@ -48,7 +48,9 @@ export class GutachtenListComponent implements OnInit {
     this.gutachters$=this.gutachterService.gutachters();
    
     this.gutachtensWithGutachters$=this.gutachtenUtilsService.gutachtensWithGutachter$(this.gutachtens$, this.gutachters$);
-    
+    let gter:Gutachter[]=[{id:1, name:'gutachter1', address:'',starRating:5, tags:['tag1','tag2']}];
+    let gten: Gutachten[] = gter.map((gutachter: Gutachter) => ({ id: gutachter.id, name: '', description: '', date: new Date(), completed: false }));
+    console.log('gutachten', gten);
     // this.gutachtensWithGutachtens$ = this.store.select(
     //   RootStoreSelectors.selectFilteredGutachtenItemsWithGutachten
     // );

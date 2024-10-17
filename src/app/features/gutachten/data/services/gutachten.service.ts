@@ -99,5 +99,16 @@ export class GutachtenService {
 
     return throwError(() => new Error('gutachten not found'))
   }
- 
+
+  update(gutachten: Gutachten): Observable<Gutachten> {
+    let indexToUpdate = this.storedGutachtens.findIndex(item => item.id === gutachten.id);
+    this.storedGutachtens[indexToUpdate] = gutachten;
+    return of(gutachten);  
+  }
+
+  delete(id: number): Observable<{}> {
+    delete this.storedGutachtens[id];
+    return of({});
+  }
+
 }

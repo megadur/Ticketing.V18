@@ -1,13 +1,13 @@
 import { Route } from '@angular/router'
 import { GutachtenService } from '../../data/services'
-import { GutachtenDetailComponent } from '../gutachten-detail/gutachten-detail.component'
+import { GutachtenEditComponent } from './gutachten-edit.component'
 
 
 
 export const routes: Route[] = [
   {
     path: '',
-    component: GutachtenDetailComponent,
+    component: GutachtenEditComponent,
     providers: [
       GutachtenService,
 //      provideEffects(editArticleEffects),
